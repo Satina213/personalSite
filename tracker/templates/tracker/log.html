@@ -1,0 +1,32 @@
+{% extends "tracker/layout.html" %}
+
+{% block body %}
+<h1>Activity Logs</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Log ID</th>
+                <th>Activity</th>
+                <th>Starting</th>
+                <th>DateTime</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for log in logs %}
+            <tr>
+                <td>{{ log.log_id }}</td>
+                <td>{{ log.activity }}</td>
+                <td>
+                    {% if log.starting %}
+                        Start
+                    {% else %}
+                        End
+                    {% endif %}
+                </td>                
+                <td>{{ log.dateTime }}</td>
+                <!-- <td>{{ log.date }}</td> -->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
